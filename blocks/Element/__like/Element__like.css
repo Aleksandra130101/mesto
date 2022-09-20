@@ -18,5 +18,5 @@
 .Element__like:active {
     opacity: 1;
     transition: opacity ease;
-    background: url(../../../images/Union.png)
+    background: url(../../../images/Union.png);
 }
