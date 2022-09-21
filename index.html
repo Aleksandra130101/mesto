@@ -4,122 +4,108 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="pages/index.css">
-  <title>Путешествие по России</title>
+  <title>Mesto</title>
 </head>
 <body class="page">
 
     <!--Блок Header-->
-
     <header class="header">
-
       <img class="header__logo" src="images/logo.svg" alt="логотип">
-
     </header>
-    <section class="profile">
 
-      <img class="profile__avatar" src="images/profile-avatar.jpg" alt="Кусто">
+    <main class="container">
+      <section class="profile">
+        <img class="profile__avatar" src="images/profile-avatar.jpg" alt="Кусто">
       
-      <div class="profile__info">
-        <h1 class="profile__title">Жак-Ив Кусто</h1>
-        <button class="profile__EditButton"></button>
-        <p class="profile__subtitle">Исследователь океана</p>
-      </div>
+        <div class="profile__info">
+          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <button class="profile__edit-button" type="button"></button>
+          <p class="profile__subtitle">Исследователь океана</p>
+        </div>
 
-      <button class="profile__Add-Button"></button>
+        <button class="profile__add-button" type="button"></button>
+      </section>
 
-    </section>
+      <!--Блок Elements-->
+      <section class="elements">
 
-    <!--Блок Elements-->
-
-    <section class="Elements">
-
-      <article class="Element">
-
-        <img src="images/Karachayevsk.jpg" class="Element__image" alt="Карачаевск">
+        <article class="element">
+          <img src="images/Karachayevsk.jpg" class="element__image" alt="Карачаевск">
         
-        <div class="Element__text">
-          <p class="Element__title">Карачаевск</p>
-          <button class="Element__like"></button>
-        </div>
+          <div class="element__text">
+            <h2 class="element__title">Карачаевск</h2>
+            <button class="element__like" type="button"></button>
+          </div>
+        </article>
 
-      </article>
+        <article class="element">
+          <img src="images/Elbrus.jpg" class="element__image" alt="Карачаевск">
 
-      <article class="Element">
+          <div class="element__text">
+            <h2 class="element__title">Гора Эльбрус</h2>
+            <button class="element__like" type="button"></button>
+          </div>
+        </article>
 
-        <img src="images/Elbrus.jpg" class="Element__image" alt="Карачаевск">
+        <article class="element">
+          <img src="images/Dombay.jpg" class="element__image" alt="Карачаевск">
 
-        <div class="Element__text">
-          <p class="Element__title">Гора Эльбрус</p>
-          <button class="Element__like"></button>
-        </div>
+          <div class="element__text">
+            <h2 class="element__title">Домбай</h2>
+            <button class="element__like" type="button"></button>
+          </div>
+        </article>
 
-      </article>
+        <article class="element">
+          <img src="images/Afina.jpg" class="element__image" alt="Карачаевск">
 
-      <article class="Element">
+          <div class="element__text">
+            <h2 class="element__title">Храм Афины</h2>
+            <button class="element__like" type="button"></button>
+          </div>
+        </article>
 
-        <img src="images/Dombay.jpg" class="Element__image" alt="Карачаевск">
-
-        <div class="Element__text">
-          <p class="Element__title">Домбай</p>
-          <button class="Element__like"></button>
-        </div>
-
-      </article>
-
-      <article class="Element">
-
-        <img src="images/Afina.jpg" class="Element__image" alt="Карачаевск">
-
-        <div class="Element__text">
-          <p class="Element__title">Храм Афины</p>
-          <button class="Element__like"></button>
-        </div>
-
-      </article>
-
-      <article class="Element">
-
-        <img src="images/Monmartr.jpg" class="Element__image" alt="Карачаевск">
+        <article class="element">
+          <img src="images/Monmartr.jpg" class="element__image" alt="Карачаевск">
         
-        <div class="Element__text">
-          <p class="Element__title">Монмартр</p>
-          <button class="Element__like"></button>
-        </div>
+          <div class="element__text">
+            <h2 class="element__title">Монмартр</h2>
+            <button class="element__like" type="button"></button>
+          </div>
+        </article>
 
-      </article>
-
-      <article class="Element">
-
-        <img src="images/Luvr.jpg" class="Element__image" alt="Карачаевск">
+        <article class="element">
+          <img src="images/Luvr.jpg" class="element__image" alt="Карачаевск">
         
-        <div class="Element__text">
-          <p class="Element__title">Лувр</p>
-          <button class="Element__like"></button>
-        </div>
+          <div class="element__text">
+            <h2 class="element__title">Лувр</h2>
+            <button class="element__like" type="button"></button>
+          </div>
+        </article>
 
-      </article>
+      </section>
 
-    </section>-->
+    </main>
 
-    <!--Блок Footer-->
-    
+    <!--Блок Footer-->   
     <footer class="footer">
-
       <p class="footer__text">© 2020 Mesto Russia</p>
-
-    </footer>-->
+    </footer>
     
-    <section class="popap">
-      <div class="popap__container">
-        <h1 class="popap__title">Редактировать профиль</h1>
-        <form class="popap__form">
-            <input type="text" class="popap__input popap__input-name" value="">
-            <input type="text" class="popap__input popap__input-desc" value="">
-            <input type="submit" class="popap__button" value="Сохранить">      
+    <section class="popup">
+      <div class="popup__container">
+        <h2 class="popup__title">Редактировать профиль</h2>
+
+        <form class="popup__form" name="edit" id="edit">
+            <input type="text" class="popup__input popup__input_name" value="" name="name">
+            <input type="text" class="popup__input popup__input_desc" value="" name="job">
+            <button type="button" class="popup__button">Сохранить</button>      
         </form>
-        <button type="reset" class="popap__close"></button>
+
+        <button type="reset" class="popup__close"></button>
       </div>
     </section>
-    <script src="pages/index.js"></script>
+
+    <script src="scripts/index.js"></script>
 </body>
 </html>
