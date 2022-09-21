@@ -1,9 +1,0 @@
-.popap__input-name {
-    margin: 54px 0 30px 0;
-}
-
-@media screen and (max-width: 767.5px) {
-    .popap__input-name {
-        margin-top: 75px;
-    }  
-}
