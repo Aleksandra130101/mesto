@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="pages/index.css">
+  <title>Mesto</title>
+</head>
+<body class="page">
+
+    <!--Блок Header-->
+    
+    <header class="header">
+      <img class="header__logo" src="images/logo.svg" alt="логотип">
+    </header>
+
+    <main class="container">
+      <section class="profile">
+        <img class="profile__avatar" src="images/profile-avatar.jpg" alt="Кусто">
+      
+        <div class="profile__info">
+          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <button class="profile__edit-button" type="button"></button>
+          <p class="profile__subtitle">Исследователь океана</p>
+        </div>
+
+        <button class="profile__add-button" type="button"></button>
+      </section>
+
+      <!--Блок Elements-->
+  
+      <section class="elements">
+
+      </section>
+
+    </main>
+
+    <!--Блок Footer-->
+    
+    <footer class="footer">
+      <p class="footer__text">© 2020 Mesto Russia</p>
+    </footer>
+    
+    <section class="popup popup_profile">
+      <div class="popup__container">
+        <h2 class="popup__title">Редактировать профиль</h2>
+
+        <form class="popup__form" name="edit" id="edit">
+            <input type="text" class="popup__input popup__input_name_value" value="" name="nameProfile">
+            <input type="text" class="popup__input popup__input_desc_value" value="" name="jobProfile">
+            <button type="submit" class="popup__button popup__button_edit">Сохранить</button>      
+        </form>
+
+        <button type="button" class="popup__close popup__close_profile"></button>
+      </div>
+    </section>
+
+    <section class="popup popup_cards">
+      <div class="popup__container">
+        <h2 class="popup__title">Новое место</h2>
+
+        <form class="popup__form" name="edit" id="edit">
+            <input type="text" class="popup__input popup__input_name_cards" placeholder="Название" name="nameCards">
+            <input type="text" class="popup__input popup__input_desc_cards" placeholder="Ссылка на картинку"  name="linkCards">
+            <button type="submit" class="popup__button popup__button_add">Сохранить</button>      
+        </form>
+
+        <button type="button" class="popup__close popup__close_card"></button>
+      </div>
+    </section>
+    
+    <section class="popup-figure">
+      <figure class="popup-figure__container">
+        <button class="popup-figure__close"></button>
+        <img src="" class="popup-figure__image" alt="">
+        <figcaption class="popup-figure__text"></figcaption>
+      </figure>
+    </section>
+
+
+    
+    <template id="element-template">
+      <article class="element">
+        <img class="element__image" alt="#">
+      
+        <div class="element__text">
+          <h2 class="element__title"></h2>
+          <button class="element__like" type="button"></button>
+        </div>
+
+        <button class="element__trash" type="button"></button>
+      </article>
+    </template>
+
+    <script src="scripts/index.js"></script>
+</body>
+</html>
