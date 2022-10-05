@@ -23,17 +23,17 @@ const figureOpen = document.querySelector('.popup-figure_open');
 
 //Открытие попап
 
-function openpopups (popup) {
+function openPopups (popup) {
   popup.classList.add('popup_opened')
 }
 
 openPopupProfile.addEventListener('click', () => {
-  openpopups(popupProfile);
+  openPopups(popupProfile);
   createForm();
 });
 
 openPopupCard.addEventListener('click', () => {
-  openpopups(popupCards);
+  openPopups(popupCards);
 });
 
 //Функция заполнения формы "редактирование профиля"
@@ -69,20 +69,21 @@ popupFormProfile.addEventListener('submit', handleLikeClick);
 render();
 
   function render() {
-    initialCards.forEach(createCard);
+    initialCards.forEach((card) =>
+    {renderCard(card)});
   }
 
   function createCard(card) {
     const element = elemTemplate.querySelector('.element').cloneNode(true);
-    addListenersForItem(element);
     element.querySelector('.element__image').src = card.link;
     element.querySelector('.element__title').textContent = card.name;
     element.querySelector('.element__image').alt = card.name;
-    renderItem(element);
-  } 
+    addListenersForItem(element);
+    return element;
+  }
 
-  function renderItem(item) {
-    elements.prepend(item);
+  function renderCard(card) {
+    elements.prepend(createCard(card));
   }
   
   function addListenersForItem(item) {
@@ -106,11 +107,13 @@ render();
 
 function addCard(evt) {
   evt.preventDefault();
-  initialCards.splice(0, initialCards.length);
-  if ((!(nameInputCards.value === "")) && (!(nameInputCards.value === ""))) {
-  initialCards.unshift({name: nameInputCards.value, link: linkInputCards.value});
-  };
-  render();
+  let initialNewCards = [
+    {
+      name: nameInputCards.value,
+      link: linkInputCards.value
+    }
+  ];
+  initialNewCards.forEach(renderCard);
   closePopup(popupCards);
 };
 
