@@ -13,6 +13,11 @@
     border: 0;
 }
 
+.popup-figure__close:hover {
+    opacity: 0.6;
+    transform: opasity 0.3s ease;
+}
+
 @media screen and (max-width: 424.5px) {
     .popup-figure__close {
         min-width: 20px;
