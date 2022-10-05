@@ -1,0 +1,23 @@
+.popup-figure__close {
+    margin: 0;
+    padding: 0;
+    min-width: 32px;
+    min-height: 32px;
+    background-color: #000;
+    background: url(../../../images/Close-Icon.png);
+    background-position: center;
+    position: absolute;
+    right: -40px;
+    top: -40px;
+    cursor: pointer;
+    border: 0;
+}
+
+@media screen and (max-width: 424.5px) {
+    .popup-figure__close {
+        min-width: 20px;
+        min-height: 20px;
+        right: 0;
+        top: -36px;
+    }
+}
