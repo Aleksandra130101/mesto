@@ -70,20 +70,20 @@ render();
 
   function render() {
     initialCards.forEach((card) =>
-    {renderCard(card)});
+    {renderCard(card.name, card.link)});
   }
 
-  function createCard(card) {
+  function createCard(name, link) {
     const element = elemTemplate.querySelector('.element').cloneNode(true);
-    element.querySelector('.element__image').src = card.link;
-    element.querySelector('.element__title').textContent = card.name;
-    element.querySelector('.element__image').alt = card.name;
+    element.querySelector('.element__image').src = link;
+    element.querySelector('.element__title').textContent = name;
+    element.querySelector('.element__image').alt = name;
     addListenersForItem(element);
     return element;
   }
 
-  function renderCard(card) {
-    elements.prepend(createCard(card));
+  function renderCard(name, link) {
+    elements.prepend(createCard(name,link));
   }
   
   function addListenersForItem(item) {
@@ -107,13 +107,11 @@ render();
 
 function addCard(evt) {
   evt.preventDefault();
-  let initialNewCards = [
-    {
-      name: nameInputCards.value,
-      link: linkInputCards.value
-    }
-  ];
-  initialNewCards.forEach(renderCard);
+  if ((!(nameInputCards.value === "")) && (!(linkInputCards.value === ""))) {
+  renderCard(nameInputCards.value, linkInputCards.value)
+  };
+  nameInputCards.value = "";
+  linkInputCards.value = "";
   closePopup(popupCards);
 };
 
