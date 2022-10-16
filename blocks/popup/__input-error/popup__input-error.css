@@ -1,4 +1,5 @@
 .popup__input-error {
+    position: absolute;
     display: inline-block;
     min-height: 24px;
     line-height: 12px;
