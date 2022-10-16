@@ -64,13 +64,8 @@
 @import url(../blocks/popup/__close/_card/popup__close_card.css);
 @import url(../blocks/popup/__close/_profile/popup__close_profile.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
-
-/*Блок popup-figure*/
-@import url(../blocks/popup-figure/popup_figure.css);
-@import url(../blocks/popup-figure/_open/popup-figure_open.css);
-@import url(../blocks/popup-figure/_opened/popup-figure_opened.css);
-@import url(../blocks/popup-figure/__container/popup-figure__container.css);
-@import url(../blocks/popup-figure/__image/popup-figure__image.css);
-@import url(../blocks/popup-figure/__text/popup-figure__text.css);
-@import url(../blocks/popup-figure/__close/popup-figure__close.css);
-@import url(../blocks/popup-figure/_open/popup-figure_open.css);
+@import url(../blocks/popup/__figure/popup__figure.css);
+@import url(../blocks/popup/__figure-container/popup__figure-container.css);
+@import url(../blocks/popup/__figure-close/popup__figure-close.css);
+@import url(../blocks/popup/__figure-image/popup__figure-image.css);
+@import url(../blocks/popup/__figure-text/popup__figure-text.css);
