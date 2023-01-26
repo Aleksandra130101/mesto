@@ -61,11 +61,11 @@
 /*!***********************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/element/__image/element__image.css ***!
   \***********************************************************************************************************************************************************************/
-.element__image{border-top-left-radius:10px;border-top-right-radius:10px;box-sizing:border-box;cursor:pointer;height:282px;width:282px}@media screen and (min-width:425px) and (max-width:767.5px){.element__image{height:200px;width:200px}}
+.element__image{border:1px solid red;border-top-left-radius:10px;border-top-right-radius:10px;box-sizing:border-box;cursor:pointer;height:282px;width:282px}@media screen and (min-width:425px) and (max-width:767.5px){.element__image{height:200px;width:200px}}
 /*!*********************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/element/__text/element__text.css ***!
   \*********************************************************************************************************************************************************************/
-.element__text{display:flex;justify-content:space-between;margin:25px 15px 26px 21px;padding:0}
+.element__text{border:1px solid red;display:flex;justify-content:space-between;margin:25px 15px 26px 21px;padding:0}
 /*!*********************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/element/__like/element__like.css ***!
   \*********************************************************************************************************************************************************************/
@@ -77,7 +77,7 @@
 /*!***********************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/element/__title/element__title.css ***!
   \***********************************************************************************************************************************************************************/
-.element__title{font-size:24px;font-weight:900;line-height:29.05px;margin:0;max-width:200px;overflow:hidden;padding:0;text-overflow:ellipsis;white-space:nowrap}@media screen and (min-width:768px) and (max-width:1023.5px){.element__title{font-size:20px;line-height:27.05px}}@media screen and (min-width:425px) and (max-width:767.5px){.element__title{font-size:18px;line-height:25.05px;max-width:130px}}
+.element__title{border:1px solid red;font-size:24px;font-weight:900;line-height:29.05px;margin:0;max-width:200px;overflow:hidden;padding:0;text-overflow:ellipsis;white-space:nowrap}@media screen and (min-width:768px) and (max-width:1023.5px){.element__title{font-size:20px;line-height:27.05px}}@media screen and (min-width:425px) and (max-width:767.5px){.element__title{font-size:18px;line-height:25.05px;max-width:130px}}
 /*!***********************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/element/__trash/element__trash.css ***!
   \***********************************************************************************************************************************************************************/
