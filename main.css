@@ -65,15 +65,15 @@
 /*!*********************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/element/__text/element__text.css ***!
   \*********************************************************************************************************************************************************************/
-.element__text{border:1px solid red;display:flex;justify-content:space-between;margin:25px 15px 26px 21px;padding:0}
+.element__text{display:flex;justify-content:space-between;margin:25px 15px 26px 21px;padding:0}
 /*!*********************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/element/__like/element__like.css ***!
   \*********************************************************************************************************************************************************************/
-.element__like{background:url(0f511f2816dd3ee4674f.png);background-position:50%;background-size:contain;border:1px solid red;cursor:pointer;height:19px;margin:-3px 0 0;padding:0;width:22px}.element__like:hover{opacity:.5;transition:opacity .3s ease}@media screen and (min-width:425px) and (max-width:767.5px){.element__like{height:15px;width:18px}}
+.element__like{background:url(0f511f2816dd3ee4674f.png);background-position:50%;background-size:contain;border:none;cursor:pointer;height:19px;margin:-3px 0 0;padding:0;width:22px}.element__like:hover{opacity:.5;transition:opacity .3s ease}@media screen and (min-width:425px) and (max-width:767.5px){.element__like{height:15px;width:18px}}
 /*!**********************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/element/__like/_black/element__like_black.css ***!
   \**********************************************************************************************************************************************************************************/
-.element__like_black{background:url(18225fb04c5c5bd6ba9f.png) 50% no-repeat;background-position:50%;background-repeat:no-repeat;background-size:contain;border:1px solid red;opacity:1}.element__like_black:hover{opacity:1;transition:opacity}
+.element__like_black{background:url(18225fb04c5c5bd6ba9f.png) 50% no-repeat;background-position:50%;background-repeat:no-repeat;background-size:contain;opacity:1}.element__like_black:hover{opacity:1;transition:opacity}
 /*!***********************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/element/__title/element__title.css ***!
   \***********************************************************************************************************************************************************************/
@@ -85,11 +85,11 @@
 /*!***********************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/element/__likes/element__likes.css ***!
   \***********************************************************************************************************************************************************************/
-.element__likes{border:1px solid red;display:grid;gap:3px;justify-items:center}
+.element__likes{display:grid;gap:3px;justify-items:center}
 /*!*************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/element/__number/element__number.css ***!
   \*************************************************************************************************************************************************************************/
-.element__number{border:1px solid red;font-size:13px;font-weight:400;line-height:13px;margin:0;text-align:center}
+.element__number{font-size:13px;font-weight:400;line-height:13px;margin:0;text-align:center}
 /*!******************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/footer/footer.css ***!
   \******************************************************************************************************************************************************/
