@@ -210,6 +210,10 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/popup/__figure-text/popup__figure-text.css ***!
   \*******************************************************************************************************************************************************************************/
 .popup__figure-text{color:#fff;font-size:12px;font-weight:400;line-height:14.52px;margin:10px 0 0;padding:0}
+/*!*******************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/popup/_delete/popup_delete.css ***!
+  \*******************************************************************************************************************************************************************/
+.popup_delete{margin:0;opacity:1;padding:0;transition:visibility .3s,opacity .3s linear;visibility:visible}
 /*!*********************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/pages/index.css ***!
   \*********************************************************************************************************************************************/
