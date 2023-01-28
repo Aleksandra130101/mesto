@@ -4,6 +4,7 @@ import { Section } from '../components/Section.js';
 import { PopupWithImage } from '../components/PopupWithImage.js';
 import { PopupWithForm } from '../components/PopupWithForm.js';
 import { UserInfo } from '../components/UserInfo.js';
+import { Api } from '../components/Api.js';
 
 import { initialCards } from "../utils/constants.js";
 import './index.css';
@@ -17,6 +18,7 @@ const popupOpenCard = document.querySelector('.profile__add-button');
 const nameInput = document.querySelector('.popup__input_name_value');
 const jobInput = document.querySelector('.popup__input_desc_value');
 const elements = document.querySelector('.elements');
+const likeId = document.querySelector('.element__number');
 
 const cardValidate = popupCards.querySelector('.popup__form');
 const profileValidate = popupProfile.querySelector('.popup__form');
@@ -33,6 +35,17 @@ const profileValidate = popupProfile.querySelector('.popup__form');
 
 const form = popupProfile.querySelector(validateSettings.formSelector);
 
+//Api
+
+const api = new Api({
+  url: 'https://mesto.nomoreparties.co/v1/cohort-57',
+  headers: {
+    authorization: '18c1f460-1209-46d8-b484-04ad7ddb3f47',
+    'Content-Type': 'application/json'
+  },
+});
+
+
 //создание экземпляров форм
 const formCardValidate = new FormValidate(validateSettings, cardValidate);
 const formProfileValidate = new FormValidate(validateSettings, profileValidate);
@@ -43,20 +56,23 @@ formProfileValidate.enableValidation();
 
 
 function createCard(item) {
-  const card = new Card(item, '#element-template', handleOpenImage);
-  const cardElement  = card.createCard();
-  return cardElement;
+  const card = new Card(item, '#element-template', handleOpenImage, userId);
+  return card.createCard();;
 }
 
 
-const cardsList = new Section( {
-  items: initialCards.reverse(),
-  renderer: (item) => {
-    cardsList.addItem(createCard(item));
-  }
-}, elements);
+api.getInitialCards()
+  .then((cards) => {
+    const cardsList = new Section( {
+      items: cards.reverse(),
+      renderer: (item) => {
+        cardsList.addItem(createCard(item));
+      }
+    }, elements);
 
-cardsList.renderItems();
+    cardsList.renderItems(cards);
+  })
+
 
 
 //открытия попапа с карточкой
@@ -71,17 +87,20 @@ function handleOpenImage(name, link) {
 const popupWithFormCard = new PopupWithForm(
   '.popup_cards',
   (inputForm) => {
-    const newCardAdd = new Section({
-      items: [{
-        name: inputForm.nameCards,
-        link: inputForm.linkCards
-      }],
-      renderer: (item) => {
-        newCardAdd.addItem(createCard(item));
-      }
-    }, elements);
-    newCardAdd.renderItems();
-    popupWithFormCard.close();
+    api.addNewCard(inputForm)
+      .then((user) => {
+        const newCardAdd = new Section({
+          items: [{
+            name: user.name,
+            link: user.link
+          }],
+          renderer: (item) => {      
+            newCardAdd.addItem(createCard(item));
+          }
+        }, elements);
+        newCardAdd.renderItems();
+        popupWithFormCard.close();
+      });
   }
   );
 
@@ -90,10 +109,25 @@ const popupWithFormCard = new PopupWithForm(
 const popupWithFormProfile = new PopupWithForm(
   '.popup_profile',
   (inputForm) => {
-    userInfo.setUserInfo(inputForm);
-    popupWithFormProfile.close();
+    console.log(inputForm)
+    api.updateUserInfo(inputForm)
+      .then((user) => {
+        console.log(user);
+        userInfo.setUserInfo(user);
+        popupWithFormProfile.close();
+      });
   }  
   );
+
+api.getUserInfo()
+  .then((user) => {
+    userInfo.setUserInfo(user);
+  })
+
+let userId = api.getUserInfo()
+  .then((res) => {
+    userId = res;
+  });
 
 popupWithFormProfile.setEventListeners();
 popupWithFormCard.setEventListeners();
@@ -103,6 +137,7 @@ const userInfo = new UserInfo( {
   nameSelector: '.profile__title', 
   jobSelector: '.profile__subtitle'
 });
+
 
 //попапImage
 

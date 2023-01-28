@@ -1,8 +1,12 @@
 
 export class Card {
-    constructor(data, templateSelector, handleCardClick) {
+    constructor(data, templateSelector, handleCardClick, userId) {
+        this._data = data;
         this._name = data.name;
         this._link = data.link;
+        this._likes = data.likes;
+        this._userId = userId._id;
+        this._owner = data.owner._id;
         this._templateSelector = templateSelector;
 
         this._handleOpenImagePopup = handleCardClick;
@@ -54,16 +58,30 @@ export class Card {
         })
     }
 
+    _owner() {
+
+    }
+
 
     //Создание карточки
     createCard() {
         this._element = this._getTamplate(); 
         this._element.querySelector('.element__title').textContent = this._name;
+
         this._image = this._element.querySelector('.element__image');
         this._image.src = this._link;
         this._image.alt = this._name;
+
+        const likeCounter = this._element.querySelector('.element__number');
+        likeCounter.textContent = this._likes.length;
+
         this._setEventListeners();
         
+        //if (this._userId === this._owner) {
+          //  this._element.querySelector('.element__trash').classList.add('element__trash_opened');
+        //}
+        
+
         return this._element;
     }
 }
