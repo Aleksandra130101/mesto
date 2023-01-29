@@ -35,6 +35,7 @@ export class Api {
           }); 
     }
 
+
     updateUserInfo(user) {
         return fetch(`${this._url}/users/me`, {
             method: 'PATCH',
@@ -56,7 +57,29 @@ export class Api {
           }); 
     }
 
+    updateAvatar(avatar) {
+      console.log(avatar);
+      return fetch(`${this._url}/users/me/avatar`, {
+        method: 'PATCH',
+        headers: this._headers,
+        body: JSON.stringify({
+          avatar: avatar.nameCards,
+        }),
+      })
+      .then(res => {
+        if (res.ok) {
+            return res.json();
+        }
+
+        return Promise.reject(`Ошибка: ${res.status}`);
+      })
+      .catch((err) => {
+        console.log(err);
+      }); 
+    }
+
     addNewCard(user) {
+      console.log(user);
         return fetch(`${this._url}/cards`, {
             method: 'POST',
             headers: this._headers,
@@ -107,5 +130,22 @@ export class Api {
           .catch((err) => {
               console.log(err);
             }); 
+    }
+
+    deleteCard(id) {
+      console.log(id);
+      return fetch(`${this._url}/cards/${id}`, {
+        method: "DELETE",
+        headers: this._headers,
+      })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Ошибка: ${res.status} ${res.statusText}`);
+      })
+      .catch((err) => {
+          console.log(err);
+        }); 
     }
 }

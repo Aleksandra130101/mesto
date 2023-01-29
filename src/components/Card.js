@@ -1,16 +1,16 @@
-
-export class Card {
-    constructor(data, templateSelector, handleCardClick, userId) {
+export const Card = class {
+    constructor(data, templateSelector, handleCardClick, handleTrashClick, userId) {
         this._data = data;
         this._name = data.name;
         this._link = data.link;
         this._likes = data.likes;
-        this._userId = userId._id;
+        this._userId = userId;
+        this._cardId = data._id;
         this._owner = data.owner._id;
         this._templateSelector = templateSelector;
 
         this._handleOpenImagePopup = handleCardClick;
-
+        this._handleTrashClick = handleTrashClick;
     }
     
     //получаем разметку
@@ -20,17 +20,15 @@ export class Card {
         return cardElement;
     }
 
-    /*_handlePreviewFigure(name, link) {
-        //const figureImage = document.querySelector('.popup__figure-image');
-        //figureImage.src = this._link;
-        //const figureText = document.querySelector('.popup__figure-text');
-        //figureText.textContent = this._name;
-        const popupFigure = document.querySelector('.popup_figure');
-        this._handleOpenImagePopup(popupFigure);
-    }*/
+    //получить id
+
+    getCardId() {
+        return this._cardId;
+    }
+
 
     //удаление карточки
-    _handleDelateCard() {
+    handleDeleteCard(data) {
         this._element.remove();
         this._element = null;
     }
@@ -44,7 +42,7 @@ export class Card {
     _setEventListeners() {
         this._buttonDelete = this._element.querySelector('.element__trash');
         this._buttonDelete.addEventListener('click', () => {
-            this._handleDelateCard();
+            this._handleTrashClick(this._data);
         })
 
         this._buttonLike = this._element.querySelector('.element__like');
@@ -58,8 +56,10 @@ export class Card {
         })
     }
 
-    _owner() {
-
+    _showTrash() {
+        if (this._userId === this._owner) {
+            this._element.querySelector('.element__trash').classList.add('element__trash_opened');
+        }
     }
 
 
@@ -73,14 +73,11 @@ export class Card {
         this._image.alt = this._name;
 
         const likeCounter = this._element.querySelector('.element__number');
-        likeCounter.textContent = this._likes.length;
+        //likeCounter.textContent = this._likes.length;
 
         this._setEventListeners();
         
-        //if (this._userId === this._owner) {
-          //  this._element.querySelector('.element__trash').classList.add('element__trash_opened');
-        //}
-        
+        this._showTrash();
 
         return this._element;
     }

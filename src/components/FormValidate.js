@@ -11,6 +11,7 @@ export class FormValidate {
 
         this._inputLists = Array.from(this._formElement.querySelectorAll(this._inputSelector));
         this._buttonElement = this._formElement.querySelector(this._submitButtonSelector);
+        this._buttonElementText = this._buttonElement.textContent;
     }
 
     //Функция показыввает ошибки
@@ -22,10 +23,10 @@ export class FormValidate {
     }
 
     //Функция скрывает ошибки
-    _hideInputError(inputElement, errorMessage) {
+    _hideInputError(inputElement) {
         const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
         inputElement.classList.remove(this._inputErrorClass);
-        errorElement.textContent = '';
+        errorElement.textContent = inputElement.validationMessage;
         errorElement.classList.remove(this._errorClass);
     }
 
@@ -87,5 +88,13 @@ export class FormValidate {
 
     enableValidation() {
         this._setEventListeners();
+    }
+
+    setButtonText(onLoad, status) {
+        if(onLoad) {
+            this._buttonElement.textContent = status;
+        } else {
+            this._buttonElement.textContent = this._buttonElementText;
+        }
     }
 }
