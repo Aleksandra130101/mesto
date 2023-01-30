@@ -8,6 +8,7 @@ export class FormValidate {
         this._inactiveButtonClass = settings.inactiveButtonClass;
         this._inputErrorClass = settings.inputErrorClass;
         this._errorClass = settings.errorClass;
+        this._error = settings.error;
 
         this._inputLists = Array.from(this._formElement.querySelectorAll(this._inputSelector));
         this._buttonElement = this._formElement.querySelector(this._submitButtonSelector);
@@ -65,12 +66,12 @@ export class FormValidate {
 
     //Функция удаления ошибок при открытии попапа
     removeError(element) {
-        element.querySelectorAll('.popup__input-error').forEach((span) => {
-            span.classList.remove('popup__input-error_active');
+        element.querySelectorAll(this._error).forEach((span) => {
+            span.classList.remove(this._errorClass);
             span.textContent = '';
         });
-        element.querySelectorAll('.popup__input').forEach((input) => {
-            input.classList.remove('popup__input-error_type');
+        element.querySelectorAll(this._inputSelector).forEach((input) => {
+            input.classList.remove(this._inputErrorClass);
         });
     }
 
@@ -88,13 +89,6 @@ export class FormValidate {
 
     enableValidation() {
         this._setEventListeners();
-    }
-
-    setButtonText(onLoad, status) {
-        if(onLoad) {
-            this._buttonElement.textContent = status;
-        } else {
-            this._buttonElement.textContent = this._buttonElementText;
-        }
-    }
+    };
+ 
 }

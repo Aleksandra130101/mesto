@@ -8,6 +8,7 @@ export const Card = class {
         this.cardId = data._id;
         this._owner = data.owner._id;
         this._templateSelector = templateSelector;
+        this.likeStatus = false;
 
         this._handleOpenImagePopup = handleCardClick;
         this._handleTrashClick = handleTrashClick;
@@ -34,28 +35,34 @@ export const Card = class {
         this._element = null;
     }
 
-    _addMyLike() {
-        if (this.isLiked) {
-            this._buttonLike.classList.add('element__like_black');
-            
-        };
-    };
 
     addLike(data) {
+        console.log("ADD");
         this._buttonLike.classList.add('element__like_black');
         this._likeCounter.textContent = data.likes.length;
-        
+        this.likeStatus = true;
     }
 
+    
+
     deleteLike(data) {
+        console.log("DELETE");
         this._buttonLike.classList.remove('element__like_black');
         this._likeCounter.textContent = data.likes.length;
+        this.likeStatus = false;
         
     }
 
     isLiked() {
-        return (this._likes.some(data => data._id === this._userId))
+        if (this._likes.some(data => data._id === this._userId)) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
+
+
 
     //Вешаем слушатели
     _setEventListeners() {
@@ -73,6 +80,12 @@ export const Card = class {
         this._image.addEventListener('click', () => {
             this._handleOpenImagePopup(this._name, this._link);
         })
+
+        if (this.isLiked()) {
+            this._buttonLike.classList.add('element__like_black');
+            this.likeStatus = true;
+        }
+
     }
 
     _showTrash() {
@@ -94,11 +107,19 @@ export const Card = class {
         this._likeCounter = this._element.querySelector('.element__number');
         this._likeCounter.textContent = this._likes.length;
 
-        this._setEventListeners();
-        
         this._showTrash();
-        this._addMyLike();
+        this._setEventListeners();
 
         return this._element;
     }
 }
+
+//removeError(element) {
+  //  element.querySelectorAll(this._error).forEach((span) => {
+    //    span.classList.remove(this._errorClass);
+      //  span.textContent = '';
+    //});
+    //element.querySelectorAll(this._inputSelector).forEach((input) => {
+      //  input.classList.remove(this._inputErrorClass);
+    //});
+//}

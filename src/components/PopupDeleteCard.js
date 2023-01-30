@@ -7,12 +7,7 @@ export class PopupDeleteCard extends Popup {
         this._form = this._popup.querySelector('.popup__form');
     }
 
-    open() {
-        super.open();
-    }
-
     setSubmitAction(action) {
-        console.log(action);
         this._some = action;
     }
 
@@ -25,8 +20,4 @@ export class PopupDeleteCard extends Popup {
         });
 
     }
-
-    close() {
-        super.close();
-     }
 }
