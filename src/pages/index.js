@@ -62,11 +62,28 @@ formCardValidate.enableValidation();
 formProfileValidate.enableValidation();
 formAvatarValidate.enableValidation();
 
-const validators = {};
-
 
 function createCard(item) {
-  const card = new Card(item, '#element-template', handleOpenImage,
+  const card = new Card(item, '#element-template', handleOpenImage, 
+  (data) => {
+    if (data.isLiked) {
+      api.deleteLike(data._id)
+        .then((data) => {
+          card.deleteLike(data);
+        })
+        .catch((err) => {
+          console.log(`Ошибка: ${err}`)
+        })
+    } else {
+      api.putLike(data._id)
+        .then((data) => {
+          card.addLike(data)
+        })
+        .catch((err) => {
+          console.log(`При удалении карточки: ${err}`)
+        });
+    }
+  },
   (data) => {
     popupDeleteCard.open();
     popupDeleteCard.setEventListeners();
@@ -81,9 +98,13 @@ function createCard(item) {
       })
     })
   },
-  userInfo.getUserId());
+  userId);
 
   return card.createCard();;
+}
+
+let userId = () => {
+  return userInfo.getUserId()
 }
 
   Promise.all([api.getUserInfo(), api.getInitialCards()])

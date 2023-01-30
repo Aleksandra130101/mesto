@@ -1,16 +1,17 @@
 export const Card = class {
-    constructor(data, templateSelector, handleCardClick, handleTrashClick, userId) {
+    constructor(data, templateSelector, handleCardClick, handleLike, handleTrashClick, userId) {
         this._data = data;
         this._name = data.name;
         this._link = data.link;
         this._likes = data.likes;
         this._userId = userId;
-        this._cardId = data._id;
+        this.cardId = data._id;
         this._owner = data.owner._id;
         this._templateSelector = templateSelector;
 
         this._handleOpenImagePopup = handleCardClick;
         this._handleTrashClick = handleTrashClick;
+        this._handleLike = handleLike;
     }
     
     //получаем разметку
@@ -23,19 +24,37 @@ export const Card = class {
     //получить id
 
     getCardId() {
-        return this._cardId;
+        return this.cardId;
     }
 
 
     //удаление карточки
-    handleDeleteCard(data) {
+    handleDeleteCard() {
         this._element.remove();
         this._element = null;
     }
 
-    //Установка лайка
-    _handleLikeCard() {
-        this._buttonLike.classList.toggle('element__like_black');
+    _addMyLike() {
+        if (this.isLiked) {
+            this._buttonLike.classList.add('element__like_black');
+            
+        };
+    };
+
+    addLike(data) {
+        this._buttonLike.classList.add('element__like_black');
+        this._likeCounter.textContent = data.likes.length;
+        
+    }
+
+    deleteLike(data) {
+        this._buttonLike.classList.remove('element__like_black');
+        this._likeCounter.textContent = data.likes.length;
+        
+    }
+
+    isLiked() {
+        return (this._likes.some(data => data._id === this._userId))
     }
 
     //Вешаем слушатели
@@ -47,7 +66,7 @@ export const Card = class {
 
         this._buttonLike = this._element.querySelector('.element__like');
         this._buttonLike.addEventListener('click', () => {
-            this._handleLikeCard();
+            this._handleLike(this._data);
         })
 
         this._image = this._element.querySelector('.element__image');
@@ -72,12 +91,13 @@ export const Card = class {
         this._image.src = this._link;
         this._image.alt = this._name;
 
-        const likeCounter = this._element.querySelector('.element__number');
-        //likeCounter.textContent = this._likes.length;
+        this._likeCounter = this._element.querySelector('.element__number');
+        this._likeCounter.textContent = this._likes.length;
 
         this._setEventListeners();
         
         this._showTrash();
+        this._addMyLike();
 
         return this._element;
     }
