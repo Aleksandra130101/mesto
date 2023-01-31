@@ -113,13 +113,3 @@ export const Card = class {
         return this._element;
     }
 }
-
-//removeError(element) {
-  //  element.querySelectorAll(this._error).forEach((span) => {
-    //    span.classList.remove(this._errorClass);
-      //  span.textContent = '';
-    //});
-    //element.querySelectorAll(this._inputSelector).forEach((input) => {
-      //  input.classList.remove(this._inputErrorClass);
-    //});
-//}

@@ -80,22 +80,22 @@ function createCard(item) {
       userInfo.setUserInfo(user);
       userInfo.setUserAvatar(user.avatar);
       const arr = cards.reverse();
-      createCardList(arr);     
+      cardsList.renderItems(arr);
     })
     .catch((err) => {
       console.log(err);
     })
 
+
+
 //Создание списка карточек
-function createCardList(cards) {
-   const cardsList = new Section({
-      items: [cards],
-      renderer: (item) => {
-        cardsList.addItem(createCard(item));
-      }
-    }, elements);
-    cardsList.renderItems(cards);
+
+const cardsList = new Section({
+  renderer: (item) => {
+    cardsList.addItem(createCard(item));
   }
+}, elements);
+
 
 //открытия попапа с карточкой
 
@@ -111,7 +111,7 @@ const popupWithFormCard = new PopupWithForm(
     popupWithFormCard.setSubmitButtonText(true),
     api.addNewCard(inputForm)
       .then((data) => {
-        createCardList([data]);
+        cardsList.renderItems([data]);
         popupWithFormCard.close();
       })
       .catch((err) => {
